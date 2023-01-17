@@ -181,3 +181,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# URI atlas 
+atlas_uri.js
