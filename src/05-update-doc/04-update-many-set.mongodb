@@ -1,0 +1,16 @@
+use("sample_training")
+// db.getCollectionNames()
+
+db.zips.updateMany(
+  //query
+  {
+    city:'CLEVELAND'
+  },
+  //operators and update
+  {
+    // crea un nuevo atributo
+    $set:{
+      myAtribute:'Holaaa'
+    }
+  }
+)

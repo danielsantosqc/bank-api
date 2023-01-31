@@ -1,0 +1,45 @@
+use("platzi_store")
+
+// db.iot.insertOne(
+//     {
+//       sensor: "A001", 
+//       date: "2022-01-03", 
+//       readings: [1212]
+//   },
+// )
+
+// db.iot.updateOne(
+//   // query
+//   {
+//       sensor: "A001", 
+//       date: "2022-01-03", 
+//   },
+//   // condición/valor
+//   {
+//     $push: {
+//       readings: 2323
+//     }
+//   }
+// )
+
+// ***fusion de inset y update
+db.iot.updateOne(
+  // query
+  {
+      sensor: "A005", 
+      date: "2022-01-04", 
+  },
+  // condición/valor
+  {
+    $push: {
+      readings: 444
+    }
+  },
+  // upsert, hace que actualize o inserte si no hay el valor
+  {
+    upsert: true
+  }
+)
+
+
+db.iot.find()

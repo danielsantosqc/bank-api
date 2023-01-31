@@ -1,0 +1,42 @@
+//pull bora el valor dentro de un array
+// pull solo funciona en arrays
+use("platzi_store")
+
+db.inventory.updateOne(
+  {
+    _id:4
+  },
+  {
+    $pull:{
+      tags:"school"
+    }
+  }
+)
+
+// **remueve un elemento
+// db.inventory.updateMany(
+//   {
+//     // _id:4
+//   },
+//   {
+//     $pull:{
+//       tags:"book",
+//     }
+//   }
+// )
+//  remueve varios elementos
+// db.inventory.updateMany(
+//   {
+//     // _id:4
+//   },
+//   {
+//     $pull:{
+//       tags:{
+//         $in:['book','bag']
+//       }
+//     }
+//   }
+// )
+
+// db.inventory.findOne({_id:4})
+db.inventory.find()

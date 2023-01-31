@@ -1,0 +1,25 @@
+use("bank-api")
+db.users.find()
+
+db.users.updateOne(
+  {
+    _id: 2,
+    // _id:ObjecttId('234873214hgjds9239fklsadfk')
+  },
+  {
+    /**
+    * $set is the change operator  
+     * field: The field name
+     * expression: The expression.
+     */
+    $set: {
+      name: 'new name',
+      age: 30,
+      //* es posible agragar un nuevo atributo
+      hobies: ['game','gym','books']
+    }
+  }
+)
+
+db.users.find()
+

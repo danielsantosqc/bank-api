@@ -1,0 +1,16 @@
+use("sample_training")
+
+// db.zips.find()
+
+// db.zips.find({pop:{$lte:1000}})
+
+//** With SORT  */
+db.zips
+  .find({pop:{$gte:1000}},{city:1, state:1, pop:1})
+  .sort({pop:-1}) //1 forma acendente/ -1 forma descendente
+  .limit(10)
+
+
+
+
+

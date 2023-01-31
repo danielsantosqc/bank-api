@@ -1,0 +1,34 @@
+use("sample_training")
+// db.getCollectionNames()
+
+// db.zips.updateMany(
+//   //query
+//   {
+//     city:'CLEVELAND'
+//   },
+//   //operators and update | cambia el nombre del atributo y no el valor
+//   {
+//     // renombra un atributo
+//     $rename : {
+//       my_datas: 'my_data'
+//     }
+//   }
+// )
+
+db.zips.updateMany(
+  //query
+  {
+    city:'CLEVELAND'
+  },
+  //operators and update | cambia el nombre del atributo y no el valor
+  {
+    // borra un un atributo
+    /**
+     * Provide the field name to exclude.
+     * To exclude multiple fields, pass the field names in an array.
+     */
+    $unset: {
+      my_data: ''
+    }
+  }
+)

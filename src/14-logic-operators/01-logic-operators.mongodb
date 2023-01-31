@@ -1,0 +1,47 @@
+use("sample_training")
+// db.inspections.find()
+
+
+// db.inspections.find({sector: {$regex:/tax/i}},{sector:1, _id:0})
+// db.inspections.find({ sector: { $regex: "tax", $options: "$i" } }, { sector: 1 }).limit(10)
+
+//** el operador (AND) esta de forma implícita */
+// db.inspections.find({sector: "Tax Preparers - 891", result: "Unable to Locate"})
+
+
+//** el operador (AND) esta de forma explicita */
+// $and:[{},{},{},]
+// db.inspections.find({
+//   $and: [
+//     {sector: "Tax Preparers - 891"},
+//     {result: "Unable to Locate"}
+//   ]
+// },{sector:1, result:1})
+
+//** el operador (OR) esta de forma explicita */
+// $or:[{},{},{},]
+// db.inspections.find({
+//   $or: [
+//     {sector: "Tax Preparers - 891"},
+//     {result: "Unable to Locate"}
+//   ]
+// },{sector:1, result:1})
+
+//** el operador (NOR) esta de forma explicita */
+//no incluye los documentos que tengan los elementos pasados a nor
+// $nor:[{},{},{},]
+// db.inspections.find({
+//   $nor: [
+//     {sector: "Tax Preparers - 891"},
+//     {result: "Unable to Locate"}
+//   ]
+// },{sector:1, result:1})
+
+
+
+//** el operador (NOT) esta de forma explicita */
+// trae todos lo documentos que no tengan el valor dado 
+// $not:{}
+db.inspections.find({
+  result:{$not:{$regex: /unable to locate/i}}
+})

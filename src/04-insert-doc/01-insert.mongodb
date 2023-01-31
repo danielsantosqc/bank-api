@@ -1,0 +1,12 @@
+use("bank-api")
+
+db.users.insertOne({
+  "name":"daniel"
+})
+db.users.insertOne({
+  "name":"ariel"
+})
+db.users.insertOne({
+  "name":"Ismael"
+})
+db.users.find()

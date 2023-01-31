@@ -1,0 +1,19 @@
+use("sample_training")
+// db.getCollectionNames()
+
+db.zips.updateMany(
+  //query
+  {
+    city:'CLEVELAND'
+  },
+  //operators and update
+  {
+    $inc:{
+      pop:1000
+    }
+  }
+)
+
+
+
+// db.zips.find().count()

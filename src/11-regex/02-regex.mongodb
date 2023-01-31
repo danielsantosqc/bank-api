@@ -1,0 +1,16 @@
+use("platzi_store")
+
+// db.inventory.find({"item.description":"Single line description."})
+
+// db.inventory.find({"item.description":{$regex: /line/ }})
+
+//** not sensitive case */
+// db.inventory.find({"item.description":{ $regex: /many/i }})
+
+//** busca el string que termina en (end-string$) */
+// db.inventory.find({"item.description":{ $regex: /line$/i }})
+
+//** busca el string que inicia en (end-string$) */
+db.inventory.find({"item.description":{ $regex: /^single/i }})
+
+// db.inventory.find()

@@ -1,0 +1,22 @@
+use("bank-api")
+db.users.find()
+
+db.users.updateOne(
+  {
+    _id:2,
+    // _id:ObjecttId('234873214hgjds9239fklsadfk')
+  },
+  {
+    /**
+    * $inc is the change operator  , solo para numeros
+     * field: The field name
+     * expression: The expression.
+     */
+    $inc:{
+      age: -2
+    }
+  }
+)
+
+db.users.find()
+

@@ -1,0 +1,12 @@
+use("platzi_store")
+
+// db.products.deleteOne(_id: ObjectId("1234uiirew"))
+// db.products.deleteOne({_id: 1})
+// db.products.deleteMany({price: 100})
+
+//**borra todos los documentos de la colección */
+db.products.drop()
+
+
+
+db.products.find()

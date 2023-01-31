@@ -1,0 +1,9 @@
+use("platzi_store")
+
+db.categories
+  .find()
+  // .skip(0) //limite de saltos a dar para la respuesta 
+  // .skip(3) 
+  // .skip(6) 
+  .skip(9) 
+  .limit(3) // valor limite de documentos a mostrar

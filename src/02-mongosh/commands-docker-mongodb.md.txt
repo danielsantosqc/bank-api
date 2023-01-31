@@ -1,0 +1,18 @@
+## Connect to Container
+```sh
+docker compose exec mongodb bash
+```
+
+``
+## Connect with mongosh
+```sh
+mongosh "mongodb://usuario:contraseña@localhost:27017/?authMechanism=DEFAULT"
+```
+
+## Connect with mongosh localhost
+```sh
+mongosh --host localhost --port 27017 --username usuario
+```
+
+## or direct connection
+docker compose exec mongodb mongosh "mongodb://nombreUsuario:contraseña@localhost:27017/?authMechanism=DEFAULT&tls=false"

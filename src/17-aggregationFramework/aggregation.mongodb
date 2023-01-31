@@ -1,0 +1,32 @@
+use("sample_airbnb")
+
+// db.listingsAndReviews.find()
+
+// db.listingsAndReviews.find(
+//   {amenities: "Wifi"}, //find
+//   {price:1, amenities:1} //projection
+// )
+
+
+//** Using aggregation  */
+//example pipeline aggregation[]->[]->[]->[]
+// db.listingsAndReviews.aggregate(
+//   {$match :{amenities: "Wifi"}}, //find()
+//   {$project :{price:1, amenities:1}} //projection
+// )
+
+db.listingsAndReviews.aggregate(
+  {$match :{amenities: "Wifi"}}, //find()
+  {$project :{address:1}}, //projection
+  {/**
+   * _id: The id of the group.
+   * fieldN: The first field name.
+   */
+  $group: {
+    _id: "$address.country",
+    cuantos: {
+      $sum: 1
+    }
+  }}
+)
+

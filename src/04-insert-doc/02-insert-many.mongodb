@@ -1,0 +1,41 @@
+use("bank-api")
+db.users.drop()
+
+
+// -----
+
+
+db.users.insertMany(
+  [
+    {
+      _id:1,
+      "name":"daniel",
+      "age": 20
+    },
+    {
+      _id:2,
+      "name":"nelson",
+      "age": 20
+    },
+    {
+      _id:3,
+      "name":"rogerio",
+      "age": 20
+    },
+    {
+      _id:4,
+      "name":"pedro",
+      "age": 20
+    },
+  ],
+  // ordered, si insertamos el id, no registra 
+  // los id repetidos, y sigue el proceso
+  // {
+  //   oedered:false
+  // }
+)
+
+
+// ------
+
+db.users.find()
