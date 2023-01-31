@@ -1,0 +1,42 @@
+###############   script para mongodump/mongorestore   ##########
+
+********* script para base de datos local **********
+
+# ** hace una copia binaria (bson )de la base de datos *
+-- si no de especifica la <DATABASE> hará una copia de todas base de datos
+++ con URI
+(1) mongodump --uri=mongodb://usuario@localhost:27017/ --authenticationDatabase=admin --out=./backup
+(2) mongodump --uri=mongodb://usuario@localhost:27017/<DATABASE> --authenticationDatabase=admin --out=./backup
+
+-- si no de especifica la "--db=dataBaseName"a copiar,; hará una copia de todas base de datos
+++ con HOST
+(1) mongodump --host=localhost --port=27017 --username=usuario --authenticationDatabase=admin --out=./backup
+
+(ejemplo) mongodump --host=mongodb1.example.net --port=27017 --username=user --authenticationDatabase=admin --out=/backup/mongodump-2011-10-24
+--------------------------------------------
+# ** hace un restore de una copia (bson) de una base de datos  *
+-- si restaura una copia de varios DB  no en necesario colocar "--db=dataBaseName" caso contrario colocar el nombre de la DB 
+-- a crear donde se colocaran los datos
++ con URI
+mongorestore --uri=mongodb://usuario@localhost:27017/ --db=dataBaseName --authenticationDatabase=admin ./backup/dbBackup
++ con HOST
+(1) mongorestore --host=localhost --port=27017 --username=usuario --authenticationDatabase=admin ./backup
+(2) mongorestore --host=localhost --port=27017 --username=usuario --db=airbnb --authenticationDatabase=admin ./backup/sample_airbnb
+
+--restore de una copia de otro banco de datos----
+
+
+
+
+*********** script para base de datos externa  **********
+ # **  crea el backup ***
+-- si no de especifica la <DATABASE> a copiar,; hará una copia de todas las que hay
+(1) mongodump --uri mongodb+srv://USUARIO@learning.u0ijyio.mongodb.net/ --out ./backup
+(2) mongodump --uri mongodb+srv://USUARIO@learning.u0ijyio.mongodb.net/<DATABASE> --out ./dbBackup
+
+# **  hace la restauración  ***
+-- si restaura una copia de varios DB  no en necesario colocar "--db=dataBaseName" caso contrario colocar el nombre de la DB 
+-- a crear donde se colocaran los datos
+
+(1) mongorestore --uri mongodb+srv://USUARIO@learning.u0ijyio.mongodb.net ./backup
+(2) mongorestore --uri mongodb+srv://USUARIO@learning.u0ijyio.mongodb.net --db=dataBaseName ./backup/dbBackup
