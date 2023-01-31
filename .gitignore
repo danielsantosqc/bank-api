@@ -184,3 +184,6 @@ dist
 
 # URI atlas 
 atlas_uri.js
+
+#file db mongodb
+mongo_data/
