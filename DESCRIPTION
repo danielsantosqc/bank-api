@@ -1,4 +1,4 @@
 MongoDb Query Language
-
 iniciar por la carpeta 01- ...
-y seguir la secuencia
+luego hacer el restore del backup de banco de datos, ejemplo en el archivo mongodump_mongorestore.txt.
+y luego seguir la secuencia de carpetas 02-...03-...
